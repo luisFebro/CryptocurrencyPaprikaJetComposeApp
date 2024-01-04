@@ -30,6 +30,8 @@ data class CoinDetailDto(
     val whitepaper: Whitepaper
 )
 
+
+// MAPPERS
 fun CoinDetailDto.toCoinDetail(): CoinDetail {
     return CoinDetail(
         coinId = id,

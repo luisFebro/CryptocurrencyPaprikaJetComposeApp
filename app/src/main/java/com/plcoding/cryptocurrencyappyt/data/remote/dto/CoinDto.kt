@@ -16,6 +16,7 @@ data class CoinDto(
     val type: String
 )
 
+// MAPPERS
 fun CoinDto.toCoin(): Coin {
     return Coin(
         id = id,
