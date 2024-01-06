@@ -20,6 +20,8 @@ class CoinListViewModel @Inject constructor(
     private val _state = mutableStateOf(CoinListState())
     val state: State<CoinListState> = _state
 
+    // val state by mutableStateOf(CoinListState()) // n1 chatGPT diff between sintax
+
     init {
         getCoins()
     }
@@ -42,3 +44,26 @@ class CoinListViewModel @Inject constructor(
     }
 
 }
+
+/*
+
+Both options accomplish the same goal of creating a mutable state in your ViewModel, but they have slight differences in terms of syntax and usage.
+
+Option A:
+```kotlin
+private val _state = mutableStateOf(CoinListState())
+val state: State<CoinListState> = _state
+```
+
+In this option, you create a private mutable state variable `_state` and expose it as an immutable `State` property named `state`. This approach gives you more control over the mutable state within the ViewModel.
+
+Option B:
+```kotlin
+val state by mutableStateOf(CoinListState())
+```
+
+In this option, you use property delegation with `by mutableStateOf` to create a public property `state` that is backed by the mutable state. This is a more concise syntax and is commonly used when you want a simple way to create and manage mutable state in a ViewModel.
+
+Both options are valid, and the choice between them depends on your preferences and requirements. If you prefer explicit control over the mutable state variable, Option A might be a better fit. If you want a more concise and Kotlin-like syntax, Option B is a good choice.
+
+ */
